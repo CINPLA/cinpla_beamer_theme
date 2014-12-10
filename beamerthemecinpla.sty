@@ -1,13 +1,43 @@
+\usepackage{datetime, textpos, tikz}
+
 \mode<presentation>
 
-\usetheme{Frankfurt}
+%\usetheme{Frankfurt}
 \usecolortheme{cinpla}
 \useoutertheme{shadow}
-\useinnertheme{rounded}
+\useinnertheme{rectangles}
+
+\usefonttheme{professionalfonts}
+%\usefonttheme{serif}
 
 \beamertemplatenavigationsymbolsempty
 
 \institute{CINPLA - University of Oslo}
+
+\setbeamertemplate{title page}{
+  \begin{tikzpicture}[remember picture,overlay]  
+    \node [xshift=6.4cm,yshift=-1.2cm] at (current page.north west)
+          {\includegraphics[width = \paperwidth ]{cinpla}};
+  \end{tikzpicture}
+  {\centering
+    \vskip42pt
+  
+    \hbox{
+      \begin{beamercolorbox}[center,sep=0.4cm]{title}%
+        \usebeamerfont{title}\inserttitle\par
+      \end{beamercolorbox}
+    }
+    
+    %\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+    \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+    \bigskip
+    \usebeamerfont{author}\insertauthor\par
+    \vskip2pt
+    %\usebeamerfont{institute}\insertinstitute\par
+    \usebeamerfont{date}\insertdate\par
+  }
+
+}
 
 
 \setbeamertemplate{footline}{
@@ -24,3 +54,26 @@
     \usebeamerfont{title in head/foot}\insertshorttitle
   \end{beamercolorbox}}%
 }
+
+\setbeamertemplate{sections/subsections in toc}[square]
+
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+     
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertsectionnavigationhorizontal{.5\textwidth}{}{\hskip0pt plus1filll}
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}\insertsubsectionnavigationhorizontal{.5\textwidth}{\hskip0pt plus1filll}{}
+  \end{beamercolorbox}}%
+}
+
+\setbeamertemplate{headline}{
+   \leavevmode%
+  \hbox{%
+     \begin{beamercolorbox}[wd=\paperwidth,ht=2.25ex,dp=1ex,center]{white}
+  \end{beamercolorbox}%
+  }
+}
+
