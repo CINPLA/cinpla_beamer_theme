@@ -1,4 +1,4 @@
-\usepackage{datetime, textpos, tikz}
+\usepackage{datetime, textpos, tikz, fontspec}
 
 \mode<presentation>
 
@@ -8,7 +8,10 @@
 \useinnertheme{rectangles}
 
 \usefonttheme{professionalfonts}
-%\usefonttheme{serif}
+\usefonttheme{serif}
+%\usefonttheme{Source Sans Pro}
+%\setsansfont{Source Sans Pro}
+\setmainfont{Source Sans Pro}
 
 \beamertemplatenavigationsymbolsempty
 
@@ -16,8 +19,8 @@
 
 \setbeamertemplate{title page}{
   \begin{tikzpicture}[remember picture,overlay]  
-    \node [xshift=6.4cm,yshift=-1.2cm] at (current page.north west)
-          {\includegraphics[width = \paperwidth ]{cinpla}};
+    \node [xshift=4.04cm,yshift=-1.1cm] at (current page.north west)
+          {\includegraphics[width = 0.5\paperwidth ]{cinpla.png}};
   \end{tikzpicture}
   {\centering
     \vskip42pt
