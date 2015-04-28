@@ -19,7 +19,7 @@
 
 \setbeamertemplate{title page}{
   \begin{tikzpicture}[remember picture,overlay]  
-    \node [xshift=4.04cm,yshift=-1.1cm] at (current page.north west)
+    \node [xshift=3.44cm,yshift=-1.1cm] at (current page.north west)
           {\includegraphics[width = 0.5\paperwidth ]{cinpla.png}};
   \end{tikzpicture}
   {\centering
@@ -27,7 +27,7 @@
   
     \hbox{
       \begin{beamercolorbox}[center,sep=0.4cm]{title}%
-        \usebeamerfont{title}\inserttitle\par
+        \usebeamerfont{title}\Large\inserttitle\par
       \end{beamercolorbox}
     }
     
@@ -36,8 +36,8 @@
     \bigskip
     \usebeamerfont{author}\insertauthor\par
     \vskip2pt
-    %\usebeamerfont{institute}\insertinstitute\par
-    \usebeamerfont{date}\insertdate\par
+    \usebeamerfont{institute}\insertinstitute\par
+    %\usebeamerfont{date}\footnotesize\insertdate\par
   }
 
 }
@@ -80,3 +80,8 @@
   }
 }
 
+\lstset{
+  escapeinside={||},
+  basicstyle=\ttfamily\footnotesize, 
+  columns=fixed
+}

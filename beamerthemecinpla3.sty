@@ -1,0 +1,189 @@
+\usepackage{datetime, textpos, tikz}
+
+\mode<presentation>
+
+%\usetheme{Frankfurt}
+\usecolortheme{cinpla}
+%\useoutertheme{shadow}
+\useinnertheme{rectangles}
+
+%\usefonttheme{professionalfonts}
+%\usefonttheme{serif}
+%\usefonttheme{Source Sans Pro}
+%\setsansfont{Source Sans Pro}
+%\setmainfont{Source Sans Pro}
+
+
+
+
+
+
+\mode<presentation>
+
+\useoutertheme{split}
+
+
+\setbeamertemplate{frametitle}[default][shadow=false]
+
+\pgfdeclarehorizontalshading[frametitle.bg,frametitle right.bg]{beamer@frametitleshade}{\paperheight}{%
+  color(0pt)=(frametitle.bg);
+  color(\paperwidth)=(frametitle right.bg)}
+
+\AtBeginDocument{
+  \pgfdeclareverticalshading{beamer@topshade}{\paperwidth}{%
+    color(0pt)=(bg);
+    color(4pt)=(black!50!bg)}
+}
+
+% \addtobeamertemplate{headline}
+% {}
+% {%
+%   \vskip-0.2pt
+%   \pgfuseshading{beamer@topshade}
+%   \vskip-2pt
+% }
+
+
+\defbeamertemplate*{frametitle}{}
+{%
+  \vskip8pt
+  \nointerlineskip%
+  \vskip-2pt%
+  \hbox{\leavevmode
+    \advance\beamer@leftmargin by -12bp%
+    \advance\beamer@rightmargin by -12bp%
+    \beamer@tempdim=\textwidth%
+    \advance\beamer@tempdim by \beamer@leftmargin%
+    \advance\beamer@tempdim by \beamer@rightmargin%
+    \hskip-\Gm@lmargin\hbox{%
+      \setbox\beamer@tempbox=\hbox{\begin{minipage}[b]{\paperwidth}%
+          \vbox{}\vskip-.75ex%
+          \leftskip0.3cm%
+          \rightskip0.3cm plus1fil\leavevmode
+          \insertframetitle%
+          \ifx\insertframesubtitle\@empty%
+            \strut\par%
+          \else
+            \par{\usebeamerfont*{framesubtitle}{\usebeamercolor[fg]{framesubtitle}\insertframesubtitle}\strut\par}%
+          \fi%
+          \nointerlineskip
+          \vbox{}%
+          \end{minipage}}%
+      \beamer@tempdim=\ht\beamer@tempbox%
+      \advance\beamer@tempdim by 2pt%
+      \begin{pgfpicture}{0pt}{0pt}{\paperwidth}{\beamer@tempdim}
+        \usebeamercolor{frametitle right}
+        \pgfpathrectangle{\pgfpointorigin}{\pgfpoint{\paperwidth}{\beamer@tempdim}}
+        \pgfusepath{clip}
+        \pgftext[left,base]{\pgfuseshading{beamer@frametitleshade}}
+      \end{pgfpicture}
+      \hskip-\paperwidth%
+      \box\beamer@tempbox%
+    }%
+    \hskip-\Gm@rmargin%
+  }%
+  % \nointerlineskip
+  %   \vskip-0.2pt
+  %   \hbox to\textwidth{\hskip-\Gm@lmargin\pgfuseshading{beamer@topshade}\hskip-\Gm@rmargin}
+  %   \vskip-2pt
+}
+
+
+
+
+
+
+
+\beamertemplatenavigationsymbolsempty
+
+\institute{CINPLA - University of Oslo}
+
+\setbeamertemplate{title page}{
+  \vspace{-45pt}
+  %\usebeamerfont{title}\Large\inserttitle\par
+  \begin{tikzpicture}[remember picture,overlay]  
+    \node [xshift=1.35cm,yshift=0.55cm] at (current page.south west)
+          {\includegraphics[width = 0.2\paperwidth ]{cinpla.png}};
+  \end{tikzpicture}
+  {\centering
+  
+    \hbox{
+      \begin{beamercolorbox}[left,sep=0.35cm]{title}%
+        \usebeamerfont{title}\Large\inserttitle\par
+      \end{beamercolorbox}
+    }
+    
+    %\usebeamerfont{title}\usebeamercolor[fg]{title}\inserttitle\par
+    %\usebeamerfont{date}\footnotesize\insertdate\par
+  }
+
+
+  \begin{tikzpicture}[remember picture,overlay]  
+    \node [xshift=0.2\paperwidth,yshift=-0.1\paperheight] at (current page.center)
+          {\includegraphics[width = 0.6\paperwidth ]{titlepage.png}};
+  \end{tikzpicture}
+  
+  \usebeamerfont{subtitle}\usebeamercolor[fg]{subtitle}\insertsubtitle\par
+  \vskip20pt
+  \usebeamerfont{author}\insertauthor\par
+  \vskip18pt
+  \usebeamerfont{institute}\insertinstitute\par
+  \vskip3pt
+  \usebeamerfont{date}\footnotesize\insertdate\par
+    
+
+}
+
+\setbeamertemplate{footline}{
+  % \leavevmode%
+  % \hbox{%
+     
+  % \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+  %   \usebeamerfont{author in head/foot}\insertshortauthor
+  % \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.25\paperwidth,ht=2.25ex,dp=1ex,center]{institute in head/foot}%
+  %   \usebeamerfont{institute in head/foot}\insertshortinstitute
+  % \end{beamercolorbox}%
+  % \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+  %   \usebeamerfont{title in head/foot}\insertshorttitle
+  % \end{beamercolorbox}}%
+}
+
+\setbeamertemplate{sections/subsections in toc}[square]
+
+
+
+ \setbeamertemplate{headline}{
+%   \leavevmode%
+%   \hbox{%
+     
+%   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+%     \usebeamerfont{author in head/foot}%\insertsectionnavigationhorizontal{.5\textwidth}{}{\hskip0pt plus1filll}
+%   \end{beamercolorbox}%
+%   \begin{beamercolorbox}[wd=.5\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+%     \usebeamerfont{title in head/foot}%\insertsubsectionnavigationhorizontal{.5\textwidth}{\hskip0pt plus1filll}{}
+%   \end{beamercolorbox}}%
+ }
+
+%  \pgfdeclarehorizontalshading[frametitle.bg, frametitle right.bg]{frametitleshade}{\paperheight}{
+%   color(0pt)=(frametitle.bg);
+%   color(\paperwidth)=(frametitle right.bg)
+%  }
+
+ %\setbeamertemplate{frametitle}[default][shadow=false]
+
+% \setbeamertemplate{frametitle}{
+%    \vskip10pt
+%    %\leavevmode%
+%    %\pgfuseshading{frametitleshade}
+%     % \begin{pgfpicture} 
+%     %   \pgftext[at=\pgfpoint{1cm}{0cm}]  {\pgfuseshading{frametitleshade}} 
+%     %   \pgftext[at=\pgfpoint{2cm}{0.5cm}]{\pgfuseshading{frametitleshade}} 
+%     % \end{pgfpicture}
+%    \begin{beamercolorbox}[wd=\paperwidth,sep=2pt,left]{\pgfuseshading{frametitleshade}}
+     
+%      \usebeamerfont{frametitle}\usebeamercolor{frametitle}\insertframetitle\par
+%    \end{beamercolorbox}
+    
+% }
+
